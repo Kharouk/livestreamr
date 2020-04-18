@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 import Homepage from './components/Homepage'
 import Recordings from './components/Recordings'
-import MP4Player from './components/MP4Player';
+import MP4Player from './components/MP4Player'
 
 import './App.css';
 

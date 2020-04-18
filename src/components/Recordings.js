@@ -3,12 +3,21 @@ import Nav from './Nav'
 
 import Player from './Player'
 
+const recordedURLS = [
+    'https://stream.mux.com/E9mOC1Uh0202QvnCCyq501ZMUUuUAtdNj9m.m3u8',
+    'https://stream.mux.com/Gwx25DUzUAVp4asH7YQdevuUE5x5UPagX94HsOqQpkc.m3u8'
+]
+
 export default () => {
     return (
-        <div>
+        <>
             <Nav />
-            <h1>Recordings</h1>
-            <Player videoSrc={'https://stream.mux.com/E9mOC1Uh0202QvnCCyq501ZMUUuUAtdNj9m.m3u8'} />
-        </div>
+            <div className="app-base-style">
+                <h1>Recordings</h1>
+                {recordedURLS.map(url => {
+                    return <Player key={url} videoSrc={url} />
+                })}
+            </div>
+        </>
     )
 }
