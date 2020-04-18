@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+
 import './App.css';
+
+import Player from './components/Player';
+
+const Wrapper = styled.div`
+  video {
+    width: 1000px;
+    max-width: 100%;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
+    <Wrapper>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Player />
       </header>
-    </div>
+      </Wrapper>
   );
 }
 
