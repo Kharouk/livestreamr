@@ -17,7 +17,11 @@ export default () => {
             <div className="app-base-style">
                 <h1>Recordings</h1>
                 {recordedPlaybackIds.map(playbackId => {
-                    return <Player key={playbackId} videoSrc={`https://stream.mux.com/${playbackId}.m3u8`} />
+                    return <Player 
+                        key={playbackId} 
+                        thumbnailSrc={`https://image.mux.com/${playbackId}/thumbnail.jpg?time=15`}
+                        videoSrc={`https://stream.mux.com/${playbackId}.m3u8`}
+                    />
                 })}
             </div>
         </>

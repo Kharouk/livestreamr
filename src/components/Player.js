@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Hls from 'hls.js'
 
-export default ({ videoSrc }) => {
+export default ({ thumbnailSrc, videoSrc }) => {
     const videoRef = useRef(null)
   
     useEffect(() => {
@@ -25,7 +25,8 @@ export default ({ videoSrc }) => {
     return (
         <div>
             <br />
-            <video  
+            <video
+                poster={thumbnailSrc}
                 controls
                 muted
                 ref={videoRef} 
