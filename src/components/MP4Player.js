@@ -1,9 +1,11 @@
 import React from 'react'
+import Nav from './Nav'
 
 const MP4Player = ({ videoSrc }) => {
     return (
         <div>
-            <p>Basic MP4 video</p>
+            <Nav />
+            <h1>Basic MP4 video</h1>
             {/* MP4 VIDEO: Not adaptive like HLS */}
             <video
                 controls

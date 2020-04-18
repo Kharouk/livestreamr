@@ -25,7 +25,6 @@ export default ({ videoSrc }) => {
 
     return (
         <div>
-            <p>livestream</p>
             <video
                 ref={videoRef}
                 controls

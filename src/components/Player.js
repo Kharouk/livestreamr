@@ -25,7 +25,6 @@ export default ({ videoSrc }) => {
     return (
         <div>
             <br />
-            <p>Video</p>
             <video  
                 controls
                 muted
