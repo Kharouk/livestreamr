@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 import Homepage from './components/Homepage'
 import Recordings from './components/Recordings'
-import MP4Player from './components/MP4Player'
+import OtherRecordings from './components/OtherRecordings'
 
 import './App.css';
 
@@ -29,7 +29,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Homepage} />
           <Route path='/recordings' component={Recordings}/>
-          <Route path='/mp4' component={MP4Player}/>
+          <Route path='/mp4' component={OtherRecordings}/>
         </Switch>
       </Router>
     </Wrapper>

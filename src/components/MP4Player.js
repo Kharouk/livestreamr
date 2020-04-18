@@ -1,18 +1,18 @@
 import React from 'react'
-import Nav from './Nav'
 
-const MP4Player = ({ videoSrc }) => {
+const MP4Player = ({ videoSrc, mp4File }) => {
     return (
         <>
-        <Nav />
         <div className='app-base-style'>
             <h1>Basic MP4 video</h1>
+            {console.log(mp4File)}
             {/* MP4 VIDEO: Not adaptive like HLS */}
             <video
                 controls
                 muted
-                src={'https://storage.googleapis.com/muxdemofiles/mux-video-intro.mp4'}
+                src={videoSrc}
             />
+            {mp4File && <a href={mp4File}>Download</a>}
         </div>
         </>
     )

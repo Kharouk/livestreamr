@@ -32,11 +32,15 @@ export default () => {
                     const thumbnailSrc = `https://image.mux.com/${playbackId}/${thumbnailType}?time=${thumbnailTime}`
                     console.log(thumbnailSrc)
 
-                    return <Player 
-                        key={playbackId} 
-                        thumbnailSrc={thumbnailSrc}
-                        videoSrc={`https://stream.mux.com/${playbackId}.m3u8`}
-                    />
+                    return (
+                        <>
+                            <Player 
+                                key={playbackId} 
+                                thumbnailSrc={thumbnailSrc}
+                                videoSrc={`https://stream.mux.com/${playbackId}.m3u8`}
+                            />
+                        </>
+                    )
                 })}
             </div>
         </>

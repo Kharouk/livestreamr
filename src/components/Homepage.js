@@ -3,7 +3,7 @@ import React from 'react'
 import Nav from './Nav'
 import LiveStreamPlayer from './LiveStreamPlayer'
 
-const videoLsSrc = 'https://stream.mux.com/ovWVLudbUSjA8Ko61FXELOEve024s8tYjMvCPQHGDOw4.m3u8'
+const videoLsSrc = 'https://stream.mux.com/gHB6WttSBP2m6FsLog00Ezlag7gLP2Ajh02Y5QHhZicDk.m3u8'
 
 export default () => {
     return (
