@@ -2,37 +2,36 @@ import React, { useEffect, useRef } from 'react'
 import Hls from 'hls.js'
 
 export default ({ videoSrc }) => {
-  const videoRef = useRef(null)
+    const videoRef = useRef(null)
   
-  useEffect(() => {
-    const video = videoRef.current
+    useEffect(() => {
+        const video = videoRef.current
 
-    if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // Safari
-      video.src = videoSrc
-    } else if (Hls.isSupported() && videoSrc[-1] === 8) {
-      // not safari and a m3u8 file
-      const hls = new Hls()
-      hls.loadSource(videoSrc)
-      hls.attachMedia(video)
-    } else {
-      // why are you using IE 11 and below or just a basic video
-      video.src = videoSrc
-      console.error('Oh no, this feature is not supported!')
-    }
+        if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // Safari
+            video.src = videoSrc
+        } else if (Hls.isSupported()) {
+            // not safari and a m3u8 file
+            const hls = new Hls()
+            hls.loadSource(videoSrc)
+            hls.attachMedia(video)
+        } else {
+            // why are you using IE 11 and below or just a basic video
+            video.src = ''
+        }
 
-  }, [videoSrc, videoRef])
+     }, [videoSrc, videoRef])
 
-  return (
-    <div>
-      <br />
-      {/* MP4 VIDEO: Not adaptive like HLS */}
-      <video  
-        controls
-        muted
-        ref={videoRef} 
-      />
-      <br />
-    </div>
+    return (
+        <div>
+            <br />
+            <p>Video</p>
+            <video  
+                controls
+                muted
+                ref={videoRef} 
+            />
+            <br />
+        </div>
     )
 }
