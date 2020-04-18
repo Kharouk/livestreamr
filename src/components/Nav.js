@@ -17,7 +17,7 @@ const Wrapper = styled.nav`
 export default () => {
     return (
         <Wrapper>
-            <Link to='/'>Homepage</Link>
+            <Link to='/'>Live Stream</Link>
             <Link to='/recordings'>Recordings</Link>
             <Link to='/mp4'>MP4 Videos</Link>
         </Wrapper>

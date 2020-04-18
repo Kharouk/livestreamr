@@ -10,6 +10,7 @@ export default () => {
         <div>
             <Nav />
             <header className="app-base-style">
+                <h1>The Best Live Stream</h1>
                 <LiveStreamPlayer videoSrc={videoLsSrc} />
             </header>
         </div>
