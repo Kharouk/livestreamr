@@ -5,6 +5,9 @@ import './App.css';
 
 import Player from './components/Player';
 
+const videoSrc = 'https://stream.mux.com/OuyruOOVG01gqN9K8CO341cbeBtA6brZF2oCFlUKbdck.m3u8'
+
+
 const Wrapper = styled.div`
   * {
     text-align: center;
@@ -19,7 +22,7 @@ function App() {
   return (
     <Wrapper>
       <header className="App-header">
-        <Player />
+        <Player videoSrc={videoSrc} />
       </header>
       </Wrapper>
   );

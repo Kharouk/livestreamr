@@ -1,33 +1,34 @@
-import React, { useEffect, createRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Hls from 'hls.js'
 
-const videoSrc = 'https://stream.mux.com/E9mOC1Uh0202QvnCCyq501ZMUUuUAtdNj9m.m3u8'
-
-export default () => {
-  const videoRef = createRef(null)
+export default ({ videoSrc }) => {
+  const videoRef = useRef(null)
   
   useEffect(() => {
     const video = videoRef.current
-    if(Hls.isSupported()) {
+
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Safari
+      video.src = videoSrc
+    } else if (Hls.isSupported()) {
+      // not safari
       const hls = new Hls()
       hls.loadSource(videoSrc)
       hls.attachMedia(video)
-    }
-    
-    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc
+    } else {
+      // why are you using IE 11 and below
+      video.src = ''
+      console.error('Oh no, this feature is not supported!')
     }
 
-
-  }, [videoRef])
+  }, [videoSrc, videoRef])
 
   return (
     <div>
-      <h2>Best Player</h2>
+      <h2>Live Stream URL</h2>
       <video
         ref={videoRef}
-        controls
-        src='https://stream.mux.com/E9mOC1Uh0202QvnCCyq501ZMUUuUAtdNj9m.m3u8'      
+        controls     
       />
       <br />
       {/* MP4 VIDEO: Not adaptive like HLS */}
