@@ -6,6 +6,9 @@ import './App.css';
 import Player from './components/Player';
 
 const Wrapper = styled.div`
+  * {
+    text-align: center;
+  }
   video {
     width: 1000px;
     max-width: 100%;
