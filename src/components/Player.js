@@ -10,14 +10,14 @@ export default ({ videoSrc }) => {
     if (video.canPlayType('application/vnd.apple.mpegurl')) {
       // Safari
       video.src = videoSrc
-    } else if (Hls.isSupported()) {
-      // not safari
+    } else if (Hls.isSupported() && videoSrc[-1] === 8) {
+      // not safari and a m3u8 file
       const hls = new Hls()
       hls.loadSource(videoSrc)
       hls.attachMedia(video)
     } else {
-      // why are you using IE 11 and below
-      video.src = ''
+      // why are you using IE 11 and below or just a basic video
+      video.src = videoSrc
       console.error('Oh no, this feature is not supported!')
     }
 
@@ -25,18 +25,14 @@ export default ({ videoSrc }) => {
 
   return (
     <div>
-      <h2>Live Stream URL</h2>
-      <video
-        ref={videoRef}
-        controls     
-      />
       <br />
       {/* MP4 VIDEO: Not adaptive like HLS */}
       <video  
         controls
         muted
-        src='https://storage.googleapis.com/muxdemofiles/mux-video-intro.mp4' 
+        ref={videoRef} 
       />
-      </div>
+      <br />
+    </div>
     )
 }
