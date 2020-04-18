@@ -3,6 +3,7 @@ import React from 'react'
 const MP4Player = ({ videoSrc }) => {
     return (
         <div>
+            <p>Basic MP4 video</p>
             {/* MP4 VIDEO: Not adaptive like HLS */}
             <video
                 controls

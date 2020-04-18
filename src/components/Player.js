@@ -11,12 +11,12 @@ export default ({ videoSrc }) => {
             // Safari
             video.src = videoSrc
         } else if (Hls.isSupported()) {
-            // not safari and a m3u8 file
+            // not safari
             const hls = new Hls()
             hls.loadSource(videoSrc)
             hls.attachMedia(video)
         } else {
-            // why are you using IE 11 and below or just a basic video
+            // why are you using IE 11 and below
             video.src = ''
         }
 
