@@ -5,6 +5,12 @@ import Player from './Player'
 
 const recordedPlaybackIds = [
     {
+        playbackId: 'n3iiuIX49Y4lhnTL02hsWpJJmwSQqBWlesVZ6i5bEvV8',
+        thumbnailType: 'animated.gif', 
+        thumbnailTime: 3,
+        mp4File: 'high.mp4'
+    },
+    {
         playbackId: 'E9mOC1Uh0202QvnCCyq501ZMUUuUAtdNj9m',
         thumbnailType: 'thumbnail.jpg', 
         thumbnailTime: 3
@@ -28,13 +34,13 @@ export default () => {
             <Nav />
             <div className="app-base-style">
                 <h1>Recordings</h1>
-                {recordedPlaybackIds.map(({ playbackId, thumbnailTime, thumbnailType }) => {
+                {recordedPlaybackIds.map(({ playbackId, thumbnailTime, thumbnailType, mp4File }) => {
                     const thumbnailSrc = `https://image.mux.com/${playbackId}/${thumbnailType}?time=${thumbnailTime}`
-                    console.log(thumbnailSrc)
-
+                    const mp4FileLink = `https://stream.mux.com/${playbackId}/${mp4File}?download=video.mp4`
                     return (
                         <>
                             <Player 
+                                mp4File={mp4File ? mp4FileLink : null}
                                 key={playbackId} 
                                 thumbnailSrc={thumbnailSrc}
                                 videoSrc={`https://stream.mux.com/${playbackId}.m3u8`}

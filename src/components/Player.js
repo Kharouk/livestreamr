@@ -3,7 +3,7 @@ import Hls from 'hls.js'
 
 const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
-export default ({ thumbnailSrc, videoSrc }) => {
+export default ({ thumbnailSrc, videoSrc, mp4File }) => {
     const videoRef = useRef(null)
 
     useEffect(() => {
@@ -25,7 +25,6 @@ export default ({ thumbnailSrc, videoSrc }) => {
             // Debug Chrome's issue where thumbnails are not working
             // have to create hacky solution just to display thumbnails.
             if (isChrome) {
-                console.trace('Chrome Browser')
                 // video.addEventListener('click', () => loadHls(videoSrc, video))
                 hls.loadSource(videoSrc)
                 hls.attachMedia(video)
@@ -43,6 +42,7 @@ export default ({ thumbnailSrc, videoSrc }) => {
 
     return (
         <div>
+            {console.log(mp4File)}
             <br />
             <video
                 poster={thumbnailSrc}
@@ -50,6 +50,7 @@ export default ({ thumbnailSrc, videoSrc }) => {
                 muted
                 ref={videoRef}
             />
+            {mp4File && <a href={mp4File}>Download</a>}
             <br />
         </div>
     )
